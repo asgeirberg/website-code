@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://asgeirberg.github.io/website/</loc>
+    <lastmod>2015-08-22T06:42:21-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://asgeirberg.github.io/website/about/</loc>
     <lastmod>2015-08-22T06:42:21-07:00</lastmod>
   </url>
@@ -19,11 +24,6 @@
   
   <url>
     <loc>https://asgeirberg.github.io/website/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://asgeirberg.github.io/website/</loc>
     <priority>0</priority>
   </url>
   
