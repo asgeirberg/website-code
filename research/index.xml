@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Papers on Ásgeir Berg Matthíasson</title>
-    <link>https://asgeirberg.github.io/website/research/</link>
+    <link>www.asgeirberg.org/research/</link>
     <description>Recent content in Papers on Ásgeir Berg Matthíasson</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 22 Aug 2015 06:42:21 -0700</lastBuildDate>
     
-	<atom:link href="https://asgeirberg.github.io/website/research/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="www.asgeirberg.org/research/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
