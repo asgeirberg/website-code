@@ -1,0 +1,222 @@
+---
+output:
+  pagedown::html_paged:
+    css: ["css/one-column-paged-academic.css",  "https://use.fontawesome.com/releases/v5.7.2/css/all.css"]
+    number_sections: false
+links-to-footnotes: true
+knit: pagedown::chrome_print
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(knitr)
+library(lubridate)
+library(glue)
+
+######## CREATE HELPER FUNCTIONS
+# function which takes a name and replaces the first name with initial and dot
+replace_first_name_with_initial_and_dot <- function(author_name) {
+  str_replace(author_name, "(?<=\\S)\\S+", "\\.")
+}
+
+# function for doing this for an entry with a number of authors
+replace_first_names_in_list_with_initial_and_dot <- function(authors){
+  authors_split <- str_split(authors, ",") %>% 
+    map(str_trim)
+  
+  authors_split[[1]] %>% map_chr(replace_first_name_with_initial_and_dot) %>% 
+    paste0(collapse = ", ")
+}
+
+# function for adding leading zero's when there's more than 10 entries
+padding_function <- function(cv_entries_tibble, letter_to_pad){
+  if(nrow(cv_entries_tibble) > 9){
+    cv_entries_tibble %>% 
+      arrange(date) %>%
+  mutate(number = str_pad(row_number(), width = 2, side = "left", pad = "0"),
+         number = str_c(letter_to_pad, number)) %>%
+  arrange(desc(date))
+  } else {
+    cv_entries_tibble %>% 
+      arrange(date) %>%
+  mutate(number = str_pad(row_number(), width = 1, side = "left", pad = "0"),
+         number = str_c(letter_to_pad, number)) %>%
+  arrange(desc(date))
+  }
+}
+
+# function for making a year blank when it's the same as the one preceding it
+blank_year_when_repeated <- function(cv_entry_tibble){
+  cv_entry_tibble %>% 
+    mutate(row_number = row_number()) %>% 
+    mutate(year = as.character(year),
+           year = case_when(
+             row_number == 1 ~ year,
+             year == lag(year) ~ "",
+             year != lag(year) ~ year
+           )) %>% 
+    select(-row_number)
+}
+
+
+####### READ IN DATA
+#### publications #####
+publications <- read_csv("_content/publications.csv") %>% 
+  mutate(authors_full = map_chr(authors_full, replace_first_names_in_list_with_initial_and_dot)) %>% 
+  mutate(authors_full = str_replace(authors_full, "U\\. Lyngs", "*U\\. Lyngs*")) %>%    # make my name italic
+  mutate(year = year(date)) %>% 
+  mutate(venue_abbrev = if_else(!is.na(venue_abbrev), str_c(venue_abbrev, ": "), "")) # make the abbrevation an empty string if NA; add a colon and a space after if it if there is one
+
+#### cv entries #####
+cv_entries <- read_csv("_content/cv_entries.csv") %>% 
+  mutate(year = year(date)) %>%
+  mutate(year_end = case_when(
+    date_end == "present" ~ date_end,
+    !is.na(date_end) ~ str_sub(date_end, 1, 4),
+    is.na(date_end) ~ date_end
+  )) %>%
+  mutate(year = ifelse((is.na(year_end) | year == year_end),
+                      year,
+                      str_c(year, " --- ", year_end)))
+
+```
+
+
+```{css}
+:root{
+  --last-updated: "";
+}
+```
+
+
+:::::: {.title-and-contact}
+
+::: {.title}
+<h1 class="title">Ásgeir Berg Matthíasson</h1>
+:::
+
+::: {.contact-info}
+<br><br>
+asgeirberg@hi.is  \
+https://asgeirberg.com
+:::
+
+::::::
+
+## Research interests
+:::::: {.research-interests}
+
+::: {.spacer}
+:::
+
+::: {.interests}
+
+My current research project, which is funded by the *Icelandic Research Fund* (RANNÍS), is to develop a conventionalist account of mathematical truth, based on my previous work on the rule-following paradox and Wittgenstein's philosophy of mathematics.
+
+**Areas of Specialisation:** Wittgenstein, philosophy of mathematics, philosophy of logic, the rule-following paradox.
+<br>
+<br>
+**Areas of Competence:** Metaphysics, logic, epistemology,
+history of analytic philosophy.
+
+:::
+::::::
+
+<div class="cv-entries">
+## Current position
+```{r}
+cv_entries %>% 
+  filter(type == 'current', is.na(exclude)) %>%
+  mutate(what = glue("<span class='cv-entry-title'>{what}</span><br>",
+                     "{where}"
+                     )) %>% 
+  select(year, what) %>% 
+  kable()
+```
+
+## Previous positions
+```{r}
+cv_entries %>% 
+  filter(type == 'research_positions', is.na(exclude)) %>%
+  mutate(what = glue("<span class='cv-entry-title'>{what}</span><br>",
+                     "{where}"
+                     )) %>% 
+  select(year, what) %>% 
+  kable()
+```
+
+## Education
+```{r}
+cv_entries %>% 
+  filter(type == 'education') %>% 
+  mutate(what = glue("<span class='cv-entry-title'>{what}</span>, {where}<br style='line-height:130%;'>", #widens the gap between the elements a bit.
+                      "{additional_info}<br>",
+                      "<span class='thesis-title'>{additional_info2}</span>")) %>% 
+  select(year, what) %>% 
+  kable()
+```
+
+## Publications {.three-split}
+
+<h3>Journal articles</h3>
+
+```{r}
+publications %>%
+  filter(type == "journal article") %>% 
+  mutate(citation = glue("<span class='cv-entry-title'>{title}</span><br>",
+                         "<span class='publication-venue'>{venue_abbrev}<i>{venue}</i></span>")) %>% 
+  padding_function(., "J") %>% 
+  blank_year_when_repeated() %>%
+  select(year, number, citation) %>%
+  knitr::kable()
+```
+
+## Selected talks {.three-split}
+
+```{r}
+cv_entries %>% 
+  filter(type == 'talk', is.na(exclude)) %>% 
+  # add commas as appropriate
+  mutate(where = if_else(!is.na(where) & !is.na(institution), glue("{where}"), where),
+         department = if_else(!is.na(department), glue(", {department}"), department),
+         slides = if_else(!is.na(slides), glue("<a href={slides}>Slides</a>"), ""),
+         video = if_else(!is.na(video), glue("<a href={video}>Video</a>"), "")) %>%
+  mutate(additional_info = if_else(!is.na(additional_info), glue(", {additional_info}"), "")) %>% 
+  mutate(what_translation = ifelse(!is.na(what_translation), str_c("(", what_translation, ")"), what_translation)) %>% 
+  replace_na(list(what_translation = "")) %>% 
+  mutate(what = glue("<span style='display:inline-block;' class='talk-title'>{what}</span>,<br style='line-height:130%;'>",
+  					  "<span class='cv-entry-title'>{where}, {institution}</span><b>{department}{additional_info}</b><br>", 
+                     .na = "")) %>% 
+  padding_function(., "T") %>% 
+  blank_year_when_repeated() %>% 
+  select(year, number, what) %>% 
+  knitr::kable()
+
+
+```
+
+## Grants, Awards and Fellowships
+```{r}
+cv_entries %>% 
+  filter(type == 'awards') %>% 
+  mutate(what = glue("<span class='cv-entry-award'>{what}</span>")) %>%  
+  blank_year_when_repeated() %>% 
+  select(year, what) %>% 
+  kable()
+```
+
+## Reviewing and refereeing
+```{r}
+cv_entries %>% 
+  filter(type == 'reviewing') %>% 
+  mutate(what = glue("<span class='cv-entry-review'>{what}</span>",)) %>% 
+   mutate(year = glue('')) %>% 
+  select(year,what) %>% 
+  kable()
+```
+
+<!-- close 'cv-entries' div -->
+</div>
+
+<br class="pageBreak">
