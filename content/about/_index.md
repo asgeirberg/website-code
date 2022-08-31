@@ -5,7 +5,7 @@ title = "About me "
 
 +++
 
-Welcome to my website. My name is Ásgeir (IPA: [auːskeir̥]) and I'm an Adjunct Lecturer at the [University of Iceland](https://www.hi.is/). I have a PhD in Philosophy from the [University of St Andrews](http://www.st-andrews.ac.uk/) and the [University of Stirling](http://www.stir.ac.uk/) [(SASP)](http://www.st-andrews.ac.uk/~sasp/). I was formerly a [Marie Curie Early Stage Researcher](http://www.ub.edu/diaphora/) at Stirling.
+Welcome to my website. My name is Ásgeir (IPA: [auːskeir̥]) and I'm a Postdoctoral Research Fellow at the [University of Iceland](https://www.hi.is/). I have a PhD in Philosophy from the [University of St Andrews](http://www.st-andrews.ac.uk/) and the [University of Stirling](http://www.stir.ac.uk/) [(SASP)](http://www.st-andrews.ac.uk/~sasp/). I was formerly a [Marie Curie Early Stage Researcher](http://www.ub.edu/diaphora/) at Stirling.
 
 I also have an M.Sc in Logic from the [University of Amsterdam](http://www.illc.uva.nl).
 			
