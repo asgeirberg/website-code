@@ -6,10 +6,10 @@ title = "Papers"
 +++
 
 Ásgeir Berg Matthíasson. 2022. Rules as constitutive practices defined by correlated equilibria. *Inquiry*.  
-[[preprint](/papers/correlated-equilibria-abm.pdf)] [doi](https://doi.org/10.1080/0020174X.2022.2075918)
+[[preprint](/papers/correlated-equilibria-abm.pdf)] [[doi](https://doi.org/10.1080/0020174X.2022.2075918)]
 
 Ásgeir Berg Matthíasson. 2021. Contradictions and falling bridges: what was Wittgenstein’s reply to Turing?. *British Journal for the History of Philosophy*.  
-[[preprint](/papers/contradictions-and-falling-bridges-abm.pdf) [doi](https://doi.org/10.1080/09608788.2020.1815646)]  
+[[preprint](/papers/contradictions-and-falling-bridges-abm.pdf)] [[doi](https://doi.org/10.1080/0020174X.2022.2075918)]  
 
 ### Current research interests
 

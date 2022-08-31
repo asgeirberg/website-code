@@ -9,7 +9,7 @@ theme               = "cocoa"
 author              = "Ásgeir Berg Matthíasson"
 title               = "Ásgeir Berg Matthíasson"
 pygmentsuseclasses  = true
-disqusshortname     = "cocoaexamplesite" # Comment out to disable Disqus.
+#disqusshortname     = "cocoaexamplesite" # Comment out to disable Disqus.
 pluralizelisttitles = false
 googleAnalytics     = "UA-123-45"
 
@@ -34,10 +34,15 @@ weight                 = -100
 url                    = "cv/cv_english_full_asgeir_matthiasson.pdf"
 
 [[menu.main]]
-name                   = "Contact"
+name                   = "fyrir öll x"
 weight                 = -90
+url                    = "fyrirollx"
+
+[[menu.main]]
+name                   = "Contact"
+weight                 = -80
 identifier             = "code"
-url                    = "mailto:abm8@st-andrews.ac.uk"
+url                    = "mailto:asgeirberg@hi.is"
 
 [params]
 #latestpostscount       = 1                            # how many posts to display on the home page
