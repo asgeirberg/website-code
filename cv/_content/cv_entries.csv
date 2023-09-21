@@ -1,4 +1,4 @@
-type,exclude,date,date_end,what,what_translation,institution,department,where,additional_info,additional_info2,url,slides,video,short_cv,order,academic,professional_2_page,website,one_column_paged,brief_no_pubs,humanities,humanities_description
+type,exclude,date,date_end,what,what_translation,institution,department,where,additional_info,additional_info2,url,when,video,short_cv,order,academic,professional_2_page,website,one_column_paged,brief_no_pubs,humanities,humanities_description
 current,NA,2022-12-01,present,Postdoctoral Research Fellow,NA,NA,NA,University of Iceland,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 research_positions,NA,2021-1-1,2022-1-1,Adjunct Lecturer,NA,NA,NA,University of Iceland,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 research_positions,NA,2020-1-1,2021-1-1,Sessional Instructor,NA,NA,NA,University of Iceland,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -10,12 +10,23 @@ awards,NA,2022-12-01,2025-12-01,Postdoctoral Research Grant from the <i>Icelandi
 awards,NA,2016-10-01,2019-10-01,Early Stage Research Fellowship with the Marie Skłodowska-Curie European Training Network DIAPHORA,NA,NA,NA,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 reviewing,NA,NA,NA,Erkenntnis,NA,NA,NA,NA,NA,NA,NA,NA,NA,y,NA,NA,NA,NA,NA,NA,NA,NA
 reviewing,NA,NA,NA,Philosophical Quarterly,NA,NA,NA,NA,NA,NA,NA,NA,NA,y,NA,NA,NA,NA,NA,NA,NA,NA
-talk,y,2014-01-01,NA,A Kripke model of Kripke’s Outline of a Theory of Truth,NA,University of Cambridge,Cambridge,7th Cambridge Graduate Conference on the Philosophy of Logic and Mathematics,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-talk,y,2015-01-01,NA,Turing’s objections to Wittgenstein.,NA,University of Belgrade,Belgrade,2nd Belgrade Graduate Conference in Philosophy and Logic,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-talk,y,2015-01-02,NA,Russell’s Early Conception of Logic,NA,University of Amsterdam,Amsterdam,Cool Logic,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+talk,NA,2014-01-01,NA,A Kripke model of Kripke’s Outline of a Theory of Truth,NA,University of Cambridge,Cambridge,7th Cambridge Graduate Conference on the Philosophy of Logic and Mathematics,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+talk,NA,2015-01-01,NA,Turing’s objections to Wittgenstein.,NA,University of Belgrade,Belgrade,2nd Belgrade Graduate Conference in Philosophy and Logic,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+talk,NA,2015-01-02,NA,Russell’s Early Conception of Logic,NA,University of Amsterdam,Amsterdam,Cool Logic,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 talk,NA,2017-01-02,NA,Wittgenstein’s Conventionalism,NA,University of Stirling,Stirling,Diaphora Workshop III: A Priori Knowledge,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 talk,NA,2018-01-01,NA,The Inadequacy of Dispositional Accounts of Rule-Following,NA,University of Neuchâtel,Neuchâtel,Diaphora Workshop V: Determinism and Open Choices,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 talk,NA,2019-01-01,NA,Rules as Constitutive Practices Defined by Correlated Equilibra,NA,University of Milan,Milan,"Rules, Norms, and Reasons 1: Kripkenstein’s Paradox",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 talk,NA,2019-01-02,NA,A Game-Theoretic Solution to the Rule-Following Paradox,NA,University of St Andrews,St Andrews,Arché 20th Anniversary Conference,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-talk,NA,2019-01-03,NA,What was Wittgenstein’s reply to Turing?: Contradictions and Falling Bridges,NA,University of Bergen,Bergen,Wittgenstein: Naturalism and Necessity,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+talk,NA,2019-01-03,NA,What was Wittgenstein’s reply to Turing?: Contradictions and falling bridges,NA,University of Bergen,Bergen,Wittgenstein: Naturalism and Necessity,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 talk,NA,2022-07-30,NA,Wittgenstein on contradiction: Wittgenstein’s debate with Turing,‎,New College of the Humanities,London,11th British Wittgenstein Society Conference: Wittgenstein and AI,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+teaching,NA,2021-01-02,NA,HSP201G Introduction to Logic,NA,NA,NA,University of Iceland, NA, Primary Instructor,NA,Spring,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+teaching,NA,2021-01-02,NA,HSP425M Seminar: Wittgenstein's Philosophical Investigations,NA,NA,NA,University of Iceland, Spring, Primary Instructor,NA,Spring,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+teaching,NA,2021-01-02,NA,HSP105G/HSP724M Critical Thinking,NA,NA,NA,University of Iceland, NA, Primary Instructor,NA,Fall,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+teaching,NA,2021-01-02,NA,HSP073F Research Ethics,NA,NA,NA,University of Iceland, NA, Co-Instructor,NA,Fall,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+teaching,NA,2022-01-02,NA,HSP201G Logic,NA,NA,NA,University of Iceland, NA, Primary Instructor,NA,Spring,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+teaching,NA,2022-01-02,NA,HSP201G Metaphysics,NA,NA,NA,University of Iceland, NA, Co-Instructor,NA,Spring,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+talk,yes,2022-07-30,NA,Wittgenstein and the Concept ``Art'',‎,Alþýðuhúsið,Siglufjörður,Frjó,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+talk,NA,2023-03-30,NA,Was Wittgenstein a Radical Conventionalist?,NA,Vrije Universiteit Brussel,Brussels,Wittgenstein and the Philosophy of Mathematical Practice,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+reviewing,NA,NA,NA,Measurement,NA,NA,NA,NA,NA,NA,NA,NA,NA,y,NA,NA,NA,NA,NA,NA,NA,NA
+
+

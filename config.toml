@@ -34,13 +34,14 @@ weight                 = -100
 url                    = "cv/cv_english_full_asgeir_matthiasson.pdf"
 
 [[menu.main]]
-name                   = "fyrir öll x"
-weight                 = -90
+name                   = "fyrir öll"
+identifier             = "fyrirollx"
+weight                 = -80
 url                    = "fyrirollx"
 
 [[menu.main]]
 name                   = "Contact"
-weight                 = -80
+weight                 = -90
 identifier             = "code"
 url                    = "mailto:asgeirberg@hi.is"
 
@@ -62,6 +63,7 @@ facebook 			   = "//facebook.com/asgeirberg"
 noshowreadtime         = false                         # if true, don't show "<x> minutes read" in posts
 selfintro              = ""                            # appears in the site header when set to a non-empty string
 twitter                = "//twitter.com/asgeirberg"
+GoogleAnalyticsID 	   = "G-D8EQHB4E1L" 
 # highlightjslanguages = ["go"]                        # additional languages not included in the "common" set
 # highlightjsStyle     = "darcula"
 

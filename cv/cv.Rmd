@@ -99,7 +99,7 @@ cv_entries <- read_csv("_content/cv_entries.csv") %>%
 ::: {.contact-info}
 <br><br>
 asgeirberg@hi.is  \
-https://asgeirberg.com
+https://asgeirberg.org
 :::
 
 ::::::
@@ -150,20 +150,33 @@ cv_entries %>%
 ```{r}
 cv_entries %>% 
   filter(type == 'education') %>% 
-  mutate(what = glue("<span class='cv-entry-title'>{what}</span>, {where}<br style='line-height:130%;'>", #widens the gap between the elements a bit.
-                      "{additional_info}<br>",
-                      "<span class='thesis-title'>{additional_info2}</span>")) %>% 
+  mutate(what = glue("<span class='cv-entry-title'>{what}</span>, {where}<br style='line-height:130%;'>")) %>% 
   select(year, what) %>% 
   kable()
 ```
 
+\pagebreak
+
 ## Publications {.three-split}
 
-<h3>Journal articles</h3>
+<h3>Peer-reviewed journal articles</h3>
 
 ```{r}
 publications %>%
   filter(type == "journal article") %>% 
+  mutate(citation = glue("<span class='cv-entry-title'>{title}</span><br>",
+                         "<span class='publication-venue'>{venue_abbrev}<i>{venue}</i></span>")) %>% 
+  padding_function(., "J") %>% 
+  blank_year_when_repeated() %>%
+  select(year, number, citation) %>%
+  knitr::kable()
+```
+
+<h3>Other publications</h3>
+
+```{r}
+publications %>%
+  filter(type == "other") %>% 
   mutate(citation = glue("<span class='cv-entry-title'>{title}</span><br>",
                          "<span class='publication-venue'>{venue_abbrev}<i>{venue}</i></span>")) %>% 
   padding_function(., "J") %>% 
@@ -180,13 +193,13 @@ cv_entries %>%
   # add commas as appropriate
   mutate(where = if_else(!is.na(where) & !is.na(institution), glue("{where}"), where),
          department = if_else(!is.na(department), glue(", {department}"), department),
-         slides = if_else(!is.na(slides), glue("<a href={slides}>Slides</a>"), ""),
+         when = if_else(!is.na(when), glue("<a href={when}>when</a>"), ""),
          video = if_else(!is.na(video), glue("<a href={video}>Video</a>"), "")) %>%
   mutate(additional_info = if_else(!is.na(additional_info), glue(", {additional_info}"), "")) %>% 
   mutate(what_translation = ifelse(!is.na(what_translation), str_c("(", what_translation, ")"), what_translation)) %>% 
   replace_na(list(what_translation = "")) %>% 
   mutate(what = glue("<span style='display:inline-block;' class='talk-title'>{what}</span>,<br style='line-height:130%;'>",
-  					  "<span class='cv-entry-title'>{where}, {institution}</span><b>{department}{additional_info}</b><br>", 
+  					  "<span class='cv-entry-where'>{where}, {institution}</span>{department}{additional_info}<br>", 
                      .na = "")) %>% 
   padding_function(., "T") %>% 
   blank_year_when_repeated() %>% 
@@ -196,7 +209,7 @@ cv_entries %>%
 
 ```
 
-## Grants, Awards and Fellowships
+## Grants, awards and fellowships
 ```{r}
 cv_entries %>% 
   filter(type == 'awards') %>% 
@@ -204,6 +217,27 @@ cv_entries %>%
   blank_year_when_repeated() %>% 
   select(year, what) %>% 
   kable()
+```
+
+## Teaching {.three-split}
+
+```{r}
+cv_entries %>% 
+  filter(type == 'teaching', is.na(exclude)) %>% 
+  # add commas as appropriate
+  mutate(where = if_else(!is.na(where) & !is.na(institution), glue("{where}"), where)) %>%
+  mutate(additional_info = if_else(!is.na(additional_info), glue(", {additional_info}"), "")) %>% 
+  mutate(what_translation = ifelse(!is.na(what_translation), str_c("(", what_translation, ")"), what_translation)) %>% 
+  replace_na(list(what_translation = "")) %>% 
+  mutate(what = glue("<span style='display:inline-block;' class='talk-title'>{what} ({when})</span><br style='line-height:130%;'>",
+  					  "<span class='cv-entry-where'>{additional_info2}. </span>{department}{where}<br>", 
+                     .na = "")) %>% 
+  padding_function(., "C") %>% 
+  blank_year_when_repeated() %>% 
+  select(year, number, what) %>% 
+  knitr::kable()
+
+
 ```
 
 ## Reviewing and refereeing
@@ -218,5 +252,3 @@ cv_entries %>%
 
 <!-- close 'cv-entries' div -->
 </div>
-
-<br class="pageBreak">

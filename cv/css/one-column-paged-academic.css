@@ -164,6 +164,10 @@ h3 {
   font-weight: bold;
 }
 
+.cv-entry-where {
+  font-weight: normal;
+}
+
 /* make journal names in reviews italic */
 .cv-entry-review {
   font-style: italic;
@@ -246,6 +250,7 @@ hr {
 }
 
 span.talk-title {
+  font-weight: bold;
   padding-top: 0.2em;
 }
 
